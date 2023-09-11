@@ -1,0 +1,52 @@
+*
+{
+    color: white;
+}
+
+.etat-ouvert
+{
+    height: 500px;
+    width: 300px;
+    background-color: #31B472;
+}
+
+
+.etat-ferme
+{
+
+}
+
+.panier
+{
+    margin-left: 10px;
+    font-size:larger;
+    font-weight: bolds;
+}
+
+.total
+{
+    margin-left: 10px;
+    font-size:large;
+    font-weight: bolds;
+}
+
+.price
+{
+    margin-left: 10px;
+    font-size: x-large;
+}
+.button-ouvrir
+{
+    background-color: #31B472;
+    border: none;
+}
+
+.button-ferme
+{
+    background-color: #31B472;
+    border: none;
+}
+.viderPanier
+{
+    color: black;
+}

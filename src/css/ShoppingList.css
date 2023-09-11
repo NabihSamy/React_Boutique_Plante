@@ -1,0 +1,43 @@
+.cover
+{
+    width: 130px;
+    height: 140px;
+    border-radius: 15px;
+}
+
+.AllItems
+{   
+    
+    display: flex;
+    flex-flow: row wrap;
+    margin : 10px ;
+    background-color: whitesmoke;
+    justify-content: center;
+}
+
+
+
+.oneitem
+{
+    width: 160px;
+    padding: 10px 10px;
+    
+}
+.name
+{
+    text-transform: capitalize;
+}
+
+.titreplante
+{
+    color: black;
+    text-transform: capitalize;
+}
+
+
+.priceArticle
+{   
+    margin: 0;
+    font-size: small;
+    color: black;
+}
