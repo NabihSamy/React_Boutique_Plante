@@ -9,9 +9,9 @@ function CareScale ({typeScale,ValueScale}) {
     return ( 
         <div>
             {tab.map((num)=>(  
-                <tswira>
+                <sunOrWater className="sunOrWater">
                     {num <= ValueScale ? <img src={careLogo} /> : null}
-                </tswira>
+                </sunOrWater>
             ))}
         </div>
     )

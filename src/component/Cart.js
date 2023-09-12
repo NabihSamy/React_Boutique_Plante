@@ -1,10 +1,12 @@
 import '../css/Cart.css';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
-function Cart ({totalPrice,setTotalPrice,element_panier,setElement_panier}) {
+function Cart ({totalPrice,setTotalPrice,element_panier,setElement_panier,isOpen, setIsOpen}) {
 
-    const [isOpen, setIsOpen] = useState(true) //TRUE OUVERT, FALSE FERME
-    
+    useEffect(  () => {
+       document.title = (`J'aurai ${totalPrice}€ à payer 💸`)
+        }, [totalPrice]) 
+
     return isOpen ? (
         <div className="etat-ouvert">
 
@@ -15,25 +17,26 @@ function Cart ({totalPrice,setTotalPrice,element_panier,setElement_panier}) {
             <br/>
 
 
-            <panier className="panier">
+            <div className="panier">
             Panier
             <br/>
             {afficherPanier(element_panier)}
-            </panier>
+            </div>
             
             <br/>
             <br/> 
             
-            <total className="total">
+            <div className="total">
             Total:  
-            </total>
+            </div>
 
 
 
             <br/>
-            <price className="price">
+          
+            <div className="price">
                 {totalPrice} €
-            </price>
+            </div>
             <br/>
             <button className='viderPanier' onClick={ ()  =>resetPanier(setTotalPrice,setElement_panier)   } >
                 Vider le panier
@@ -57,16 +60,24 @@ function resetPanier (setTotalPrice,setElement_panier){
 }
 
 function afficherPanier (element_panier){
-    return ( <div>
+    return ( <div className='afficherPanier'>
 
     
             {element_panier.map((element) => (
-                <rowPanier>
-                        {element[0]} {element[1]*element[2]}
+                <div className="rowPanier">
+                        {element[0]} 
+                        <div className="nombrearticle">
+                        *
+                        {element[2]}
+                        </div>
+                        
                         <br/>
-                </rowPanier>
+                </div>
             ))}
 
             </div>)
     
 }
+
+
+    
