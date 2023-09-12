@@ -1,7 +1,7 @@
 import '../css/Cart.css';
 import { useState } from 'react';
 
-function Cart ({totalPriceCart,setPriceCart}) {
+function Cart ({totalPrice,setTotalPrice,element_panier,setElement_panier}) {
 
     const [isOpen, setIsOpen] = useState(true) //TRUE OUVERT, FALSE FERME
     
@@ -17,6 +17,8 @@ function Cart ({totalPriceCart,setPriceCart}) {
 
             <panier className="panier">
             Panier
+            <br/>
+            {afficherPanier(element_panier)}
             </panier>
             
             <br/>
@@ -30,10 +32,10 @@ function Cart ({totalPriceCart,setPriceCart}) {
 
             <br/>
             <price className="price">
-                {totalPriceCart} €
+                {totalPrice} €
             </price>
             <br/>
-            <button className='viderPanier' onClick={ ()  =>setPriceCart(0)   } >
+            <button className='viderPanier' onClick={ ()  =>resetPanier(setTotalPrice,setElement_panier)   } >
                 Vider le panier
             </button>
             
@@ -47,3 +49,24 @@ function Cart ({totalPriceCart,setPriceCart}) {
         </div>
 }
 export default Cart
+
+function resetPanier (setTotalPrice,setElement_panier){
+    setTotalPrice(0)
+    setElement_panier([])
+
+}
+
+function afficherPanier (element_panier){
+    return ( <div>
+
+    
+            {element_panier.map((element) => (
+                <rowPanier>
+                        {element[0]} {element[1]*element[2]}
+                        <br/>
+                </rowPanier>
+            ))}
+
+            </div>)
+    
+}

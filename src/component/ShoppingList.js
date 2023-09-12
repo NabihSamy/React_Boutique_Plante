@@ -5,13 +5,13 @@ import CareScale from './CareScale.js'
 
 
 
-function ShoppingList ({setTotalPriceShop, totalPriceShop}) {
+function ShoppingList ({setTotalPrice, totalPrice,element_panier,setElement_panier}) {
     
     return (
         <div className="AllItems" >
             {plantList.map( (plante)=>(
             <oneitem className="oneitem" >
-                <img src={plante.cover} className="cover" onClick={() => clickOnArticle(setTotalPriceShop,totalPriceShop,plante.price)} alt="image"/>
+                <img src={plante.cover} className="cover" onClick={() => clickOnArticle(plante.name,setTotalPrice,totalPrice,plante.price,setElement_panier,element_panier)} alt="image"/>
                 <br/>
                 <titreplante className="titreplante">{plante.name}</titreplante> 
                 {<CareScale typeScale="water"       ValueScale={plante.water} />}
@@ -25,14 +25,16 @@ function ShoppingList ({setTotalPriceShop, totalPriceShop}) {
     
 }
 
-function clickOnArticle (setTotalPriceShop,totalPriceShop,prix){
-    console.log("Avant execution")
-    console.log(totalPriceShop)
+function clickOnArticle (nom,setTotalPrice,totalPrice,prix,setElement_panier,element_panier){
+  
+    setTotalPrice       (   totalPrice      +   prix)
 
-    setTotalPriceShop(totalPriceShop+prix)
-
-    console.log("Apres execution")
-    console.log(totalPriceShop)
+    const index = element_panier.findIndex(item => item[0] === nom);
+    if (index == -1)
+        element_panier.push( [nom,prix,1] )
+    else 
+        element_panier[index][2]+=1
+    
 }
 
 

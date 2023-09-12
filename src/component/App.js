@@ -8,16 +8,16 @@ import {useState} from 'react'
 
 function App() {
 
-  const [totalPriceApp,setTotalPriceApp]= useState(0)
-
+  const [totalPrice   ,setTotalPrice  ]= useState(0)
+  const [element_panier ,setElement_panier]=useState([])
   return (
     <div>
 
       <Banner />
       <br/>
       <body className="body">
-      <Cart         setPriceCart=       {setTotalPriceApp}       totalPriceCart  ={totalPriceApp}  />
-      <ShoppingList setTotalPriceShop = {setTotalPriceApp}       totalPriceShop  ={totalPriceApp}  />
+      <Cart         setTotalPrice = {setTotalPrice}       totalPrice  ={totalPrice} setElement_panier={setElement_panier} element_panier={element_panier} />
+      <ShoppingList setTotalPrice = {setTotalPrice}       totalPrice  ={totalPrice} setElement_panier={setElement_panier} element_panier={element_panier} />
       
       </body>
       
